@@ -33,6 +33,10 @@ app.get('/mapFromCsv',(req,res)=>{
     res.sendFile(path.join(__dirname,'Pages','mapFromCsv.html'))
 })
 
+app.get('/census',(req,res)=>{
+    res.sendFile(path.join(__dirname,'Pages','census.html'))
+})
+
 
 
 

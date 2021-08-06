@@ -15,6 +15,9 @@ function buildNavBar() {
     }, {
         "name": "mapFromCsv",
         "path": "http://localhost:8080/mapFromCsv"
+    }, {
+        "name": "census",
+        "path": "http://localhost:8080/census"
     }
 ]
 
