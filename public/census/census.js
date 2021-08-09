@@ -354,12 +354,28 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
     })
 
     view.ui.add(legend,'bottom-right')
-   
+    var temp = document.getElementsByName('choosenRenderer')
+
+    temp.forEach(element => {
+      element.addEventListener('change',(event)=>{
+        let rButton = event.target.value
+        
+        if(rButton === 'Population')
+        {
+          counties.renderer = countyRenderer
+        }
+        else if (rButton === 'Race')
+        {
+          counties.renderer = mostPopulouseRaceRenderer
+        }
+      })
+    });
+   /*
       document.getElementById('changeRenderer').addEventListener('change',(event)=>{
      
       if(event.target.checked)
       {
-        counties.renderer = mostPopulouseRaceRenderer;layerToggle
+        counties.renderer = mostPopulouseRaceRenderer;
         document.getElementById('checkBoxText').innerText = 'View by population'
       }
       else
@@ -367,7 +383,7 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
         counties.renderer = countyRenderer;
         document.getElementById('checkBoxText').innerText = 'View by race'
       }
-    })
+    })*/
     
 
 

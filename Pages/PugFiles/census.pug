@@ -7,4 +7,13 @@ block scripts
 block headContent
     title Census
 block content
-    <span id="rendererToggle" class="esri-widget"> <input type="checkbox" id="changeRenderer" checked value='hello' /> <span id = 'checkBoxText'>View by population</span></span>
+    div(id="rendererToggle")
+        p Renderer
+        input(type='radio',id='Population',value='Population', name='choosenRenderer' )
+        label(for="Population")  Population           
+        br 
+        input(type='radio',id='Race',value='Race' ,name='choosenRenderer' checked)
+        label(for="Race")  Race
+            
+        
+    //<span id="rendererToggle" class="esri-widget"> <input type="checkbox" id="changeRenderer" checked value='hello' /> <span id = 'checkBoxText'>View by population</span></span>
