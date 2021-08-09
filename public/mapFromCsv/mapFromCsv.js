@@ -24,29 +24,73 @@ require(['esri/Map', 'esri/views/MapView', 'esri/layers/CSVLayer', 'esri/widgets
         field: 'CRASHSEVERITYID',
         uniqueValueInfos: [{
             value: 1.0,
-            label: 'severity 1',
+            label: 'FATAL INJURY',
             symbol: {
                 type: 'simple-marker',
                 color: 'red',
-                size: 3
+                size: 5
             }
         }, {
             value: 2.0,
-            label: 'severity 3',
+            label: 'INJURY',
             symbol: {
                 type: 'simple-marker',
                 color: 'yellow',
-                size: 3
+                size: 5
             }
         }, {
             value: 3.0,
-            label: 'severity 3',
+            label: 'PROPERTY DAMAGE ONLY (PDO)',
             symbol: {
                 type: 'simple-marker',
                 color: 'blue',
-                size: 3
+                size: 5
             }
-        }]
+        }, {
+            value: 2.01905,
+            label: 'PROPERTY DAMAGE ONLY',
+            symbol: {
+                type: 'simple-marker',
+                color: 'green',
+                size: 5
+            }
+        }
+        , {
+            value: 2.01903,
+            label: 'MINOR INJURY SUSPECTED',
+            symbol: {
+                type: 'simple-marker',
+                color: 'purple',
+                size: 5
+            }
+        }, {
+            value: 2.01904,
+            label: 'INJURY POSSIBLE',
+            symbol: {
+                type: 'simple-marker',
+                color: 'white',
+                size: 5
+            }
+        }, {
+            value: 2.01902,
+            label: 'SERIOUS INJURY SUSPECTED',
+            symbol: {
+                type: 'simple-marker',
+                color: '#FFCADA',
+                size: 5
+            }
+        }
+        , {
+            value: 2.01901,
+            label: 'FATAL',
+            symbol: {
+                type: 'simple-marker',
+                color: 'black',
+                size: 5
+            }
+        }
+    
+    ]
     }
 
     const simpleRenderer = {
