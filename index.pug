@@ -1,14 +1,9 @@
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        include Pages/PugFiles/Pug_includes/ScriptsAndLinks.pug
-        link(rel="stylesheet", href="./2dmap.css")
-        script(src="./2dmap.js")  
-        title Intro to MapView - Create a 2D map
-    body(onload='buildNavBar()')
-        div.mynavbar
-            ul.nav(id='navbar')
-        div.content 
-            div(id='viewDiv')
+extends ./Pages/PugFiles/MasterPages/DefaultMasterPage.pug 
+
+block styles
+    link(rel="stylesheet", href="./2dmap.css")
+block scripts
+    script(src="./2dmap.js")
+block headContent
+    title Intro to MapView - Create a 2D map
+block content

@@ -211,12 +211,135 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
         ]
       };
    
+      const mostPopulouseRaceRenderer = {
+        type:'unique-value',
+        valueExpression:`
 
+          var white = $feature.WHITE;
+          var black = $feature.BLACK;
+          var ameri_es = $feature.AMERI_ES;
+          var asian = $feature.ASIAN;
+          var hawn_pi = $feature.HAWN_PI;
+          var other = $feature.OTHER;
+          var mult_race = $feature.MULT_RACE;
+          var hispanic = $feature.HISPANIC;
+          var races = [white,black,ameri_es,asian,hawn_pi,other,mult_race,hispanic];
+          
+
+          return Decode(Max(races),white,'White',black,'Black',ameri_es,'Ameri_es',asian,'Asian',hawn_pi,'Hawn_pi',other,'Other',mult_race,'Mult_race',hispanic,'Hispanic','n/a');
+
+
+
+        `,
+        valueExpressionTitle:
+            "Counties by dominant race",
+        uniqueValueInfos:[
+          {
+            value:'White',
+            symbol:{
+              type: "simple-fill", // autocasts as new SimpleFillSymbol()
+              color: "#FFFFFF",
+              style: "solid",
+              outline: {
+                width: .5,
+                color: [0, 0, 0, 255]
+              }
+            },
+            label:'White'
+          },
+          {
+            value:'Black',
+            symbol:{
+              type: "simple-fill", // autocasts as new SimpleFillSymbol()
+              color: "#000000",
+              style: "solid",
+              outline: {
+                width: .5,
+                color: [100, 100, 100, 255]
+              }
+            },
+            label:'Black'
+          },{
+            value:'Ameri_es',
+            symbol:{
+              type: "simple-fill", // autocasts as new SimpleFillSymbol()
+              color: "#00008B",
+              style: "solid",
+              outline: {
+                width: .5,
+                color: [0, 0, 0, 255]
+              }
+            },
+            label:'Ameri_es'
+          },{
+            value:'Asian',
+            symbol:{
+              type: "simple-fill", // autocasts as new SimpleFillSymbol()
+              color: "#00FF00",
+              style: "solid",
+              outline: {
+                width: .5,
+                color: [0, 0, 0, 255]
+              }
+            },
+            label:'Asian'
+          },{
+            value:'Hawn_pi',
+            symbol:{
+              type: "simple-fill", // autocasts as new SimpleFillSymbol()
+              color: "#FF0000",
+              style: "solid",
+              outline: {
+                width: .5,
+                color: [0, 0, 0, 255]
+              }
+            },
+            label:'Hawian/Pacific Islander'
+          },{
+            value:'Other',
+            symbol:{
+              type: "simple-fill", // autocasts as new SimpleFillSymbol()
+              color: "#808080",
+              style: "solid",
+              outline: {
+                width: .5,
+                color: [0, 0, 0, 255]
+              }
+            },
+            label:'Other'
+          },{
+            value:'Mult_race',
+            symbol:{
+              type: "simple-fill", // autocasts as new SimpleFillSymbol()
+              color: "#800080",
+              style: "forward-diagonal",
+              outline: {
+                width: .5,
+                color: [0, 0, 0, 255]
+              }
+            },
+            label:'Multi Race'
+          },{
+            value:'Hispanic',
+            symbol:{
+              type: "simple-fill", // autocasts as new SimpleFillSymbol()
+              color: "#964B00",
+              style: "solid",
+              outline: {
+                width: .5,
+                color: [0, 0, 0, 255]
+              }
+            },
+            label:'Hispanic'
+          }
+
+        ]
+      }
 
     const counties = new FeatureLayer({
         url:'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/2',
         popupTemplate: countyPopupTemplate,
-        renderer:countyRenderer
+        renderer:mostPopulouseRaceRenderer
     })
 
     const states = new FeatureLayer({
@@ -232,7 +355,19 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
 
     view.ui.add(legend,'bottom-right')
    
-
+      document.getElementById('changeRenderer').addEventListener('change',(event)=>{
+     
+      if(event.target.checked)
+      {
+        counties.renderer = mostPopulouseRaceRenderer;layerToggle
+        document.getElementById('checkBoxText').innerText = 'View by population'
+      }
+      else
+      {
+        counties.renderer = countyRenderer;
+        document.getElementById('checkBoxText').innerText = 'View by race'
+      }
+    })
     
 
 

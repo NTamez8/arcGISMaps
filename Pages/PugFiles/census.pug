@@ -1,14 +1,10 @@
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        include Pug_includes/ScriptsAndLinks.pug
-        link(rel="stylesheet", href="./census.css")
-        script(src="./census.js")  
-        title Census
-    body(onload='buildNavBar()')
-        div.mynavbar
-            ul.nav(id='navbar')
-        div.content 
-            div(id='viewDiv')
+extends ./MasterPages/DefaultMasterPage.pug 
+
+block styles
+    link(rel="stylesheet", href="./census.css")
+block scripts
+    script(src="./census.js")
+block headContent
+    title Census
+block content
+    <span id="rendererToggle" class="esri-widget"> <input type="checkbox" id="changeRenderer" checked value='hello' /> <span id = 'checkBoxText'>View by population</span></span>
