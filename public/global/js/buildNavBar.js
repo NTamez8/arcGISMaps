@@ -18,6 +18,9 @@ function buildNavBar() {
     }, {
         "name": "census",
         "path": "http://localhost:8080/census"
+    }, {
+        "name": "USA",
+        "path": "http://localhost:8080/usa"
     }
 ]
 
