@@ -33,6 +33,7 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
             }
         ]
     }
+    
 
 
     const lessOneHundredThousand = {
@@ -130,6 +131,7 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
           color: [0, 0, 0, 255]
         }
       };
+
       const classBreakByPopulation2007Renderer = {
         type: "class-breaks", // autocasts as new ClassBreaksRenderer()
         field: "POP2007",
@@ -210,6 +212,207 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
           }
         ]
       };
+
+      const lessTwentyOne = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#0000FF",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+      const lessTwentyFive = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#3F3FBF",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+      const lessTwentyNine = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#7F7F7F",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+      const lessThirtyThree = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#BFBF3F",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+      const lessThirtySeven = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FFFF00",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+      const lessFourtyOne = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FECC00",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+
+
+    const lessFourtyFive = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FD9900",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+
+      const lessFourtyNine = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FC6600",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+
+      const lessFifyThree = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FB3300",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+
+      const greaterFiftyThree = {
+        type: "simple-fill", // autocasts as new SimpleFillSymbol()
+        color: "#FA0000",
+        style: "solid",
+        outline: {
+          width: .5,
+          color: [0, 0, 0, 255]
+        }
+      };
+
+      const classBreakByAvgAgeRenderer = {
+        type: "class-breaks", // autocasts as new ClassBreaksRenderer()
+        field: "MED_AGE",
+        legendOptions: {
+            title: "Average Age of US Census Block groups"
+          },
+        defaultSymbol: {
+          type: "simple-fill", // autocasts as new SimpleFillSymbol()
+          color: "black",
+          style: "backward-diagonal",
+          outline: {
+            width: .5,
+            color: [0, 0, 0, 255]
+          }
+        },
+        defaultLabel: "no data",
+        classBreakInfos: [
+          {
+            minValue: 0,
+            maxValue: 21,
+            symbol: lessTwentyOne,
+            label: "< 21"
+          },
+          {
+            minValue: 21.1,
+            maxValue: 25,
+            symbol: lessTwentyFive,
+            label: "21.1 - 25"
+          },
+          {
+            minValue: 25.1,
+            maxValue: 29,
+            symbol: lessTwentyNine,
+            label: "25.1 - 29"
+          },
+          {
+            minValue: 29.1,
+            maxValue: 33,
+            symbol: lessThirtyThree,
+            label: "29.1 - 33"
+          },
+          {
+            minValue: 33.1,
+            maxValue: 37,
+            symbol: lessThirtySeven,
+            label: "33.1 - 37"
+          },
+          {
+            minValue: 37.1,
+            maxValue: 41,
+            symbol: lessFourtyOne,
+            label: "37.1 - 41"
+          },
+          {
+            minValue: 41.1,
+            maxValue: 45,
+            symbol: lessFourtyFive,
+            label: "41.1 - 45"
+          },
+          {
+            minValue: 45.1,
+            maxValue: 49,
+            symbol: lessFourtyNine,
+            label: "45.1 - 49"
+          }
+          ,
+          {
+            minValue: 49.1,
+            maxValue: 53,
+            symbol: lessFifyThree,
+            label: "49.1 - 53"
+          },
+          {
+            minValue: 53.1,
+            maxValue: 10000000,
+            symbol: greaterFiftyThree,
+            label: "> 53.1"
+          }
+        ]
+      };
+
+      const popupTemplateBlockGroup = {
+        title:'Info',
+        content:[
+            {
+                title:'population by breakdown',
+                type:'fields',
+               fieldInfos:[
+                 {
+                   fieldName:'MED_AGE',
+                   label:'Avg Age'
+                 },
+                 {
+                   fieldName:'MED_AGE_M',
+                   label:'Avg Age Man'
+                 },
+                 {
+                   fieldName:'MED_AGE_F',
+                   label:'Avg Age Female'
+                 }
+               ]
+            }
+        ]
+      }
    
       const mostPopulouseRaceRenderer = {
         type:'unique-value',
@@ -339,13 +542,24 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
     const counties = new FeatureLayer({
         url:'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/2',
         popupTemplate: countyPopupTemplate,
-        renderer:mostPopulouseRaceRenderer
+        renderer:mostPopulouseRaceRenderer,
+        maxScale:4622325.434309
     })
 
     const states = new FeatureLayer({
         url:'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3'
     })
+
+    const countyBlocks = new FeatureLayer({
+      url:'https://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/1',
+      minScale:4622324.434309,
+      renderer:classBreakByAvgAgeRenderer,
+      popupTemplate:popupTemplateBlockGroup
+      
+    })
+
     map.add(counties)
+    map.add(countyBlocks)
 
    map.add(states)
 
@@ -370,6 +584,17 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
         }
       })
     });
+
+    view.watch('scale',(newV,oldV,prop,obj)=>{
+      if(newV <= 4622324.434309)
+      {
+        document.getElementById('rendererToggle').style.display = 'none'
+      }
+      else if(newV > 4622324.434309 )
+      {
+        document.getElementById('rendererToggle').style.display = 'block'
+      }
+    })
 
     
 
