@@ -130,7 +130,7 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
           color: [0, 0, 0, 255]
         }
       };
-      const countyRenderer = {
+      const classBreakByPopulation2007Renderer = {
         type: "class-breaks", // autocasts as new ClassBreaksRenderer()
         field: "POP2007",
         legendOptions: {
@@ -362,7 +362,7 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
         
         if(rButton === 'Population')
         {
-          counties.renderer = countyRenderer
+          counties.renderer = classBreakByPopulation2007Renderer
         }
         else if (rButton === 'Race')
         {
