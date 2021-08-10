@@ -354,10 +354,10 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
     })
 
     view.ui.add(legend,'bottom-right')
-    var temp = document.getElementsByName('choosenRenderer')
+    var radioButtons = document.getElementsByName('rendererRadioButton')
 
-    temp.forEach(element => {
-      element.addEventListener('change',(event)=>{
+    radioButtons.forEach(radioButton => {
+      radioButton.addEventListener('change',(event)=>{
         let rButton = event.target.value
         
         if(rButton === 'Population')
@@ -370,20 +370,7 @@ require(['esri/Map','esri/views/MapView','esri/layers/FeatureLayer','esri/widget
         }
       })
     });
-   /*
-      document.getElementById('changeRenderer').addEventListener('change',(event)=>{
-     
-      if(event.target.checked)
-      {
-        counties.renderer = mostPopulouseRaceRenderer;
-        document.getElementById('checkBoxText').innerText = 'View by population'
-      }
-      else
-      {
-        counties.renderer = countyRenderer;
-        document.getElementById('checkBoxText').innerText = 'View by race'
-      }
-    })*/
+
     
 
 
