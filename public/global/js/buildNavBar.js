@@ -2,6 +2,8 @@
 function buildNavBar() {
 
     var url = 'http://localhost:8080'
+    var clientID = '4fa2v8Shk6yJTjs8'
+    var redirectUri = url + '/crime'
 
     const pages = [{
         "name": "Home",
@@ -28,6 +30,10 @@ function buildNavBar() {
     {
         "name": "Sketch",
         "path": url + "/sketch"
+    },
+    {
+        "name": "Crime",
+        "path":"https://www.arcgis.com/sharing/rest/oauth2/authorize?client_id=" + clientID + "&response_type=token&expiration=20160&redirect_uri=" + redirectUri
     }
 ]
 
