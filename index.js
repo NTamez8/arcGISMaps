@@ -51,6 +51,11 @@ app.get('/usa',(req,res)=>{
     res.render(path.join(__dirname,'Pages','PugFiles','usa'))
 })
 
+app.get('/sketch',(req,res)=>{
+    //res.sendFile(path.join(__dirname,'Pages','census.html'))
+    res.render(path.join(__dirname,'Pages','PugFiles','sketch'))
+})
+
 
 
 

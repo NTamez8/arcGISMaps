@@ -1,26 +1,33 @@
 
 function buildNavBar() {
+
+    var url = 'http://localhost:8080'
+
     const pages = [{
         "name": "Home",
-        "path": "http://localhost:8080"
+        "path": url
     }, {
         "name": "3D map with layers",
-        "path": "http://localhost:8080/layers"
+        "path": url + "/layers"
     }, {
-        "name": "widgets",
-        "path": "http://localhost:8080/widget"
+        "name": "Widgets",
+        "path": url + "/widget"
     }, {
-        "name": "featureFromGraphic",
-        "path": "http://localhost:8080/featureFromGraphic"
+        "name": "FeatureFromGraphic",
+        "path": url + "/featureFromGraphic"
     }, {
-        "name": "mapFromCsv",
-        "path": "http://localhost:8080/mapFromCsv"
+        "name": "MapFromCsv",
+        "path": url + "/mapFromCsv"
     }, {
         "name": "census",
-        "path": "http://localhost:8080/census"
+        "path": url + "/census"
     }, {
         "name": "USA",
-        "path": "http://localhost:8080/usa"
+        "path": url + "/usa"
+    },
+    {
+        "name": "Sketch",
+        "path": url + "/sketch"
     }
 ]
 
