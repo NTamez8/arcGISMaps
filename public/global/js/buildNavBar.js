@@ -1,7 +1,8 @@
 
-function buildNavBar() {
+function buildNavBar(url) {
 
-    var url = 'http://localhost:8080'
+  //  console.log(testUrl)
+   // var url = 'http://localhost:8080'
     var clientID = '4fa2v8Shk6yJTjs8'
     var redirectUri = url + '/crime'
 

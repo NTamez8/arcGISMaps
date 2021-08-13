@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
@@ -8,8 +10,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.static("public"))
 app.set('view engine','pug')
 
-
-
+const url = process.env.NODE_ENV != 'test' ? '<Insert base path for site>': 'http://localhost:8080'
 
 app.get('/',(req,res)=>{
     res.redirect('/2dmap')
@@ -17,48 +18,48 @@ app.get('/',(req,res)=>{
 
 app.get('/layers',(req,res)=>{
 
-    res.render(path.join(__dirname,'Pages','PugFiles','layers'))
+    res.render(path.join(__dirname,'Pages','PugFiles','layers'),{"url":`buildNavBar('${url}')`})
 })
 
 app.get('/2dmap',(req,res)=>{
     
-    res.render(path.join(__dirname,'index.pug'))
+    res.render(path.join(__dirname,'index.pug'),{"url":`buildNavBar('${url}')`})
 })
 
 
 
 app.get('/widget',(req,res)=>{
  
-    res.render(path.join(__dirname,'Pages','PugFiles','widget'))
+    res.render(path.join(__dirname,'Pages','PugFiles','widget'),{"url":`buildNavBar('${url}')`})
 })
 
 app.get('/featureFromGraphic',(req,res)=>{
    
-    res.render(path.join(__dirname,'Pages','PugFiles','featureFromGraphic'))
+    res.render(path.join(__dirname,'Pages','PugFiles','featureFromGraphic'),{"url":`buildNavBar('${url}')`})
 })
 
 app.get('/mapFromCsv',(req,res)=>{
   
-   res.render(path.join(__dirname,'Pages','PugFiles','mapFromCsv'))
+   res.render(path.join(__dirname,'Pages','PugFiles','mapFromCsv'),{"url":`buildNavBar('${url}')`})
 })
 
 app.get('/census',(req,res)=>{
     
-    res.render(path.join(__dirname,'Pages','PugFiles','census'))
+    res.render(path.join(__dirname,'Pages','PugFiles','census'),{"url":`buildNavBar('${url}')`})
 })
 
 app.get('/usa',(req,res)=>{
    
-    res.render(path.join(__dirname,'Pages','PugFiles','usa'))
+    res.render(path.join(__dirname,'Pages','PugFiles','usa'),{"url":`buildNavBar('${url}')`})
 })
 
 app.get('/sketch',(req,res)=>{
   
-    res.render(path.join(__dirname,'Pages','PugFiles','sketch'))
+    res.render(path.join(__dirname,'Pages','PugFiles','sketch'),{"url":`buildNavBar('${url}')`})
 })
 
 app.get('/crime',(req,res)=>{
-    res.render(path.join(__dirname,'Pages','PugFiles','crime'))
+    res.render(path.join(__dirname,'Pages','PugFiles','crime'),{"url":`buildNavBar('${url}')`})
 })
 
 
