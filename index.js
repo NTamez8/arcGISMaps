@@ -8,7 +8,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.static("public"))
 app.set('view engine','pug')
 
-const url = 'http://localhost:8080'
+
 
 
 app.get('/',(req,res)=>{
