@@ -3,6 +3,7 @@ const aws = require('aws-sdk')
 const express = require('express')
 const cors = require('cors')
 const path = require('path')
+const { exit } = require('process')
 const app = express()
 app.use(cors())
 app.use(express.json())
@@ -19,15 +20,16 @@ aws.config = {
     region
 }
 
-const ec2 = new aws.ec2()
+const ec2 = new aws.EC2()
 
 ec2.describeInstances({
-    InstanceIds: ['']
+    InstanceIds: ['i-070ea2b12fd035bff']
 }, function (err, data) {
 
     var url =  'http://localhost:8080'
     if (err) {
         console.log(err)
+        exit()
     } else if (process.env.NODE_ENV == 'test') {
         url =  'http://localhost:8080'
 
