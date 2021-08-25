@@ -26,4 +26,13 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - arcgis-bucket-ntamez8/temp.zip
+    - Pages/*
+    - public/*
+    - Scripts/*
+    - appspec.yml
+    - buildspec.yml
+    - index.html
+    - index.js
+    - index.pug
+    - package.json
+    - package-lock.json
