@@ -1,8 +1,8 @@
 require(['esri/Map', 'esri/views/MapView', 'esri/layers/CSVLayer', 'esri/widgets/Legend', 'esri/widgets/TimeSlider','esri/widgets/Slider'], (Map, MapView, CSVLayer, Legend, TimeSlider,Slider) => {
 
-    //url = 'http://localhost:8080/mapFromCsv/cincinnati_traffic_crash_data__cpd.csv'
-    url = 'http://localhost:8080/mapFromCsv/newCrashDataCincinnati.csv'
+   
 
+    url = window.location.href + 'newCrashDataCincinnati.csv'
     var currentYearQuery = 'YEAR >= 2012 AND YEAR <= 2013'
     var currentMonthQuery = 'MONTH = 6'
 
